@@ -1,4 +1,4 @@
-# Cloud Build: test, build and publish the lab to the public bucket.
+# Cloud Build: test, build and publish the lab (Firebase Hosting + the public bucket).
 # Runs on every push to main (trigger "VGSGLAB").
 substitutions:
   _BUCKET: vernier-lab-bccad6de
@@ -30,6 +30,12 @@ steps:
     name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
     entrypoint: bash
     args: ['-c', 'gcloud storage cp --cache-control=no-cache dist/*.html dist/favicon.svg gs://${_BUCKET}/']
+
+  # Main address: https://riz-lab.web.app (Firebase Hosting, see firebase.json).
+  - id: deploy-hosting
+    name: node:22
+    entrypoint: npx
+    args: ['-y', 'firebase-tools', 'deploy', '--only', 'hosting', '--project', '$PROJECT_ID', '--non-interactive']
 
 options:
   logging: CLOUD_LOGGING_ONLY
