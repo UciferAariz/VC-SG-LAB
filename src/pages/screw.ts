@@ -24,7 +24,7 @@ import { createStore, changed } from '../ui/store';
 import { h, holdButton, iconButton, isTypingTarget, segmented, select, tabs, toggle } from '../ui/controls';
 import { icons } from '../ui/icons';
 import { t } from '../ui/i18n';
-import { createReadout, fmtLen, fmtSigned, fmtTrue } from '../ui/readoutPanel';
+import { createReadout, fmtLen, fmtSigned, fmtTrue, fmtZeWorking } from '../ui/readoutPanel';
 import { applyTheme, createShell, flashStatus } from '../ui/shell';
 import { prefsControls, randomSeed, seedControls, zeroControls, zeroFromQuery } from '../ui/common';
 import { savePrefs } from '../ui/prefs';
@@ -79,6 +79,7 @@ function stateFromUrl(): ScrewState {
   if (q.has('lo')) s.loupeOffsetMm = Number(q.get('lo'));
   if (q.has('aids')) s.aids = q.get('aids') !== '0';
   if (q.has('true')) s.showTrue = q.get('true') === '1';
+  if (q.has('zew')) s.showZeWorking = q.get('zew') === '1';
   const theme = q.get('theme');
   if (theme === 'dark' || theme === 'contrast' || theme === 'light') s.theme = theme;
   return s;
@@ -186,6 +187,7 @@ const readout = createReadout(
     { key: 'ze', label: t.rZe, tip: t.sgTipZe },
     { key: 'zc', label: t.rZc, tip: t.tipZc },
     { key: 'corrected', label: t.rCorrected, tip: t.tipCorrected, emphasis: true },
+    { key: 'zework', label: t.rZeWorking, tip: t.tipZeWorking },
     { key: 'state', label: t.sgRState, tip: t.sgTipState },
     { key: 'true', label: t.rTrue, tip: t.tipTrue },
   ],
@@ -222,12 +224,14 @@ function renderReadout(s: ScrewState): void {
       ze: zeText(s),
       zc: fmtSigned(d.ze.correctionMm, u, lc),
       corrected,
+      zework: fmtZeWorking(r.observedMm, d.ze.zeMm, d.correctedMm, u, lc),
       state,
       true: `${fmtTrue(s.mech.gapMm, u)} (${t.sgRTrueGap})`,
     },
     U().hideReadout ? '' : `${t.rObserved} ${observed}. ${t.rCorrected} ${corrected}.`,
   );
   readout.setVisible('true', s.showTrue && !U().hideReadout);
+  readout.setVisible('zework', s.showZeWorking);
   readout.el.hidden = U().hideReadout;
   readoutHidden.hidden = !U().hideReadout;
   stageSvg.setAttribute('aria-valuemax', String(d.params.maxGapMm));
@@ -597,6 +601,7 @@ const zeCtl = zeroControls(() => S().zeroSettings, setZero, 9);
 const backlashToggle = toggle(t.sgBacklash, S().backlashOn, (on) => store.set((s) => ({ backlashOn: on, mech: { ...s.mech, slackMm: 0 } })));
 const aidsToggle = toggle(t.sAids, S().aids, (on) => store.set({ aids: on }));
 const trueToggle = toggle(t.sShowTrue, S().showTrue, (on) => store.set({ showTrue: on }));
+const zeWorkingToggle = toggle(t.sShowZeWorking, S().showZeWorking, (on) => store.set({ showZeWorking: on }));
 const loupeToggle = toggle(t.sMagnifier, S().loupeOn, setLoupeOn);
 const magSeg = segmented<string>(t.sMagnification, [{ value: '4', label: '4×' }, { value: '6', label: '6×' }, { value: '8', label: '8×' }], String(S().loupeMag), (v) =>
   store.set({ loupeMag: Number(v) as Magnification }),
@@ -614,6 +619,7 @@ const settingsPanel = h('div', {}, [
   presetSelect.el,
   unitSeg.el,
   zeCtl.el,
+  zeWorkingToggle.el,
   backlashToggle.el,
   h('p', { class: 'hint' }, [t.sgBacklashHelp]),
   aidsToggle.el,
@@ -749,6 +755,8 @@ function syncControls(s: ScrewState): void {
   aidsToggle.el.hidden = !U().aidsAllowed;
   trueToggle.set(s.showTrue);
   trueToggle.el.hidden = U().hideReadout;
+  zeWorkingToggle.set(s.showZeWorking);
+  zeWorkingToggle.el.hidden = U().hideReadout;
   loupeToggle.set(s.loupeOn);
   magSeg.set(String(s.loupeMag));
   prefsCtl.sync(s.theme);

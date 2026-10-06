@@ -26,6 +26,7 @@ const en = {
   rZe: 'Zero error (ZE)',
   rZc: 'Zero correction (−ZE)',
   rCorrected: 'Corrected reading',
+  rZeWorking: 'Measurement with zero error',
   rTrue: "Simulator's hidden true value",
   rTrueGap: 'true jaw gap',
   rFormula: 'Observed = MSR + VSR × LC;  Corrected = Observed − ZE',
@@ -39,6 +40,7 @@ const en = {
   tipZe: 'The reading with the jaws closed on nothing. Vernier zero right of main zero: positive. Left: negative.',
   tipZc: 'The amount to add to correct a reading. It is always the negative of the zero error.',
   tipCorrected: 'The best value of the length: Corrected = Observed − Zero error.',
+  tipZeWorking: 'The zero error applied to this reading: Observed − (Zero error) = Corrected.',
   tipTrue: 'The exact gap used by the simulator, to 6 decimals. A real student never knows this.',
 
   zeNone: 'No zero error',
@@ -85,6 +87,7 @@ const en = {
   sZeSign: 'Sign',
   sAids: 'Highlight the coinciding lines',
   sShowTrue: 'Show the hidden true value',
+  sShowZeWorking: 'Show the measurement with zero error',
   sTheme: 'Theme',
   themeLight: 'Light',
   themeDark: 'Dark',

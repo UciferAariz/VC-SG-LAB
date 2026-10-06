@@ -75,6 +75,7 @@ Reposition the object between readings so the readings genuinely differ. For a w
 
 - Instrument type and display unit (mm or cm).
 - Zero error: none, random +, random −, random either sign, or custom.
+- Show the measurement with zero error (off by default): adds a readout line with the working, e.g. 2.97 − (−0.03) = 3.00 cm.
 - Backlash (screw gauge, advanced).
 - Highlight aids, magnifier, and show the hidden true value.
 - Theme (light, dark, high contrast), sound and vibration.

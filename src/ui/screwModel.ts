@@ -48,6 +48,8 @@ export interface ScrewState {
   loupePinnedX: number;
   aids: boolean;
   showTrue: boolean;
+  /** Readout: extra line with the zero-error working (Observed − ZE = Corrected). */
+  showZeWorking: boolean;
   fine: boolean;
   theme: Theme;
 }
@@ -214,6 +216,7 @@ export function initialState(seed: number): ScrewState {
     loupePinnedX: 50,
     aids: true,
     showTrue: false,
+    showZeWorking: false,
     fine: false,
     theme: loadPrefs().theme,
   };

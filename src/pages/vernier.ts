@@ -23,7 +23,7 @@ import { createStore, changed } from '../ui/store';
 import { h, holdButton, iconButton, isTypingTarget, segmented, select, tabs, toggle } from '../ui/controls';
 import { icons } from '../ui/icons';
 import { t } from '../ui/i18n';
-import { createReadout, fmtLen, fmtSigned, fmtTrue } from '../ui/readoutPanel';
+import { createReadout, fmtLen, fmtSigned, fmtTrue, fmtZeWorking } from '../ui/readoutPanel';
 import { applyTheme, createShell, flashStatus } from '../ui/shell';
 import { prefsControls, randomSeed, seedControls, zeroControls, zeroFromQuery } from '../ui/common';
 import { savePrefs } from '../ui/prefs';
@@ -74,6 +74,7 @@ function stateFromUrl(): VernierState {
   if (q.has('loupe')) s.loupeOn = q.get('loupe') !== '0';
   if (q.has('aids')) s.aids = q.get('aids') !== '0';
   if (q.has('true')) s.showTrue = q.get('true') === '1';
+  if (q.has('zew')) s.showZeWorking = q.get('zew') === '1';
   const lo = q.get('lo');
   if (lo === 'auto') {
     const d = derive(s);
@@ -199,6 +200,7 @@ const readout = createReadout(
     { key: 'ze', label: t.rZe, tip: t.tipZe },
     { key: 'zc', label: t.rZc, tip: t.tipZc },
     { key: 'corrected', label: t.rCorrected, tip: t.tipCorrected, emphasis: true },
+    { key: 'zework', label: t.rZeWorking, tip: t.tipZeWorking },
     { key: 'true', label: t.rTrue, tip: t.tipTrue },
   ],
   t.rFormula,
@@ -232,11 +234,13 @@ function renderReadout(s: VernierState): void {
       ze: zeText(s),
       zc: fmtSigned(d.ze.correctionMm, u, lc),
       corrected,
+      zework: fmtZeWorking(r.observedMm, d.ze.zeMm, d.correctedMm, u, lc),
       true: `${fmtTrue(s.gapMm, u)} (${t.rTrueGap})`,
     },
     U().hideReadout ? '' : `${t.rObserved} ${observed}. ${t.rCorrected} ${corrected}.`,
   );
   readout.setVisible('true', s.showTrue && !U().hideReadout);
+  readout.setVisible('zework', s.showZeWorking);
   readout.el.hidden = U().hideReadout;
   readoutHidden.hidden = !U().hideReadout;
   stageSvg.setAttribute('aria-valuemax', String(maxGapMm(d.config)));
@@ -555,6 +559,7 @@ function setZero(settings: ZeroErrorSettings): void {
 const zeCtl = zeroControls(() => S().zeroSettings, setZero, 9);
 const aidsToggle = toggle(t.sAids, S().aids, (on) => store.set({ aids: on }));
 const trueToggle = toggle(t.sShowTrue, S().showTrue, (on) => store.set({ showTrue: on }));
+const zeWorkingToggle = toggle(t.sShowZeWorking, S().showZeWorking, (on) => store.set({ showZeWorking: on }));
 const magSeg = segmented<string>(t.sMagnification, [{ value: '4', label: '4×' }, { value: '6', label: '6×' }, { value: '8', label: '8×' }], String(S().loupeMag), (v) =>
   store.set({ loupeMag: Number(v) as Magnification }),
 );
@@ -568,7 +573,7 @@ function applySeed(seed: number): void {
 }
 const seedCtl = seedControls(() => S().seed, applySeed, shell.status);
 
-const settingsPanel = h('div', {}, [presetSelect.el, unitSeg.el, zeCtl.el, aidsToggle.el, loupeToggle.el, magSeg.el, trueToggle.el, prefsCtl.el, seedCtl.el]);
+const settingsPanel = h('div', {}, [presetSelect.el, unitSeg.el, zeCtl.el, zeWorkingToggle.el, aidsToggle.el, loupeToggle.el, magSeg.el, trueToggle.el, prefsCtl.el, seedCtl.el]);
 
 // ── Adapter for the modes ────────────────────────────────────────────────────
 
@@ -704,6 +709,8 @@ function syncControls(s: VernierState): void {
   aidsToggle.el.hidden = !U().aidsAllowed;
   trueToggle.set(s.showTrue);
   trueToggle.el.hidden = U().hideReadout;
+  zeWorkingToggle.set(s.showZeWorking);
+  zeWorkingToggle.el.hidden = U().hideReadout;
   loupeToggle.set(s.loupeOn);
   magSeg.set(String(s.loupeMag));
   prefsCtl.sync(s.theme);

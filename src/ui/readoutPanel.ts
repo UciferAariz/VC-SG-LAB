@@ -83,6 +83,11 @@ export function fmtSigned(mm: number, unit: LengthUnit, lc: number): string {
   return `${formatSignedLength(mm, unit, lc)} ${unit}`;
 }
 
+/** Zero-error working for one reading: "23.47 − (+0.03) = 23.44 mm". */
+export function fmtZeWorking(observedMm: number, zeMm: number, correctedMm: number, unit: LengthUnit, lc: number): string {
+  return `${minus(formatLength(observedMm, unit, lc))} − (${formatSignedLength(zeMm, unit, lc)}) = ${fmtLen(correctedMm, unit, lc)}`;
+}
+
 export function fmtTrue(mm: number, unit: LengthUnit): string {
   return `${minus(formatFixed(toUnit(mm, unit), 6))} ${unit}`;
 }
