@@ -289,6 +289,10 @@ export function createScrewView(config: ScrewConfig): ScrewView {
     );
     thimbleKnurl.setAttribute('d', knurlLines(THIMBLE_LEN - GRIP_W, THIMBLE_LEN, THIMBLE_R, 0.9, false));
     ratchetKnurl.setAttribute('d', knurlLines(RATCHET_NECK, RATCHET_NECK + RATCHET_LEN, RATCHET_R, 1.1, true));
+    // Drop the previous config's ticks and labels, not just the pool references,
+    // or the old scale stays drawn under the new one.
+    circTicks.replaceChildren();
+    circLabels.replaceChildren();
     tickPool.length = 0;
     labelPool.length = 0;
   }
