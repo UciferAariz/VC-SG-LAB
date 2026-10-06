@@ -119,6 +119,6 @@ docs/checkpoints/  milestone screenshots, recordings, printed A4 samples and rep
 - Design assumptions and conventions are in `DECISIONS.md`; the specification is `spec.md`.
 - All user-facing text is in `src/ui/i18n.ts`, ready for a second language.
 - Dev scripts use the locally installed Chrome or Edge, for example `node scripts/smoke-screw.mjs http://localhost:5173`.
-- **Online copy:** <https://storage.googleapis.com/vernier-lab-bccad6de/index.html>. Every push to `main` on GitHub runs `cloudbuild.yaml` on Google Cloud Build (trigger `vc-sg-lab-deploy`): tests, build, then upload of `dist/` to the bucket. A failing test stops the upload, so the site keeps the last good version.
+- **Online copy:** <https://storage.googleapis.com/vernier-lab-bccad6de/index.html>. Every push to `main` on GitHub runs `cloudbuild.yaml` on Google Cloud Build (trigger `VGSGLAB`, runs as service account `vc-sg-lab-deploy`): tests, build, then upload of `dist/` to the bucket. A failing test stops the upload, so the site keeps the last good version.
 
 The only name used anywhere in the app is **Riz Lab**.

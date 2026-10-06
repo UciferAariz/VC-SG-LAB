@@ -1,5 +1,5 @@
 # Cloud Build: test, build and publish the lab to the public bucket.
-# Runs on every push to main (trigger "vc-sg-lab-deploy").
+# Runs on every push to main (trigger "VGSGLAB").
 substitutions:
   _BUCKET: vernier-lab-bccad6de
 
