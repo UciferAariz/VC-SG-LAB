@@ -1,0 +1,26 @@
+Production build (npm run build), sizes in bytes
+
+file                                    raw      gzip
+assets/demoScripts-nX0Xt3Eg.js         90427     30509
+assets/screw-C-3i0TUW.js               32093     11782
+assets/vernier-C7wRjcSo.js             28738     10697
+assets/prefs-CAcesbzI.css              19283      5058
+notes.html                             14456      4510
+assets/notes-CAZSI5c9.js                4884      2055
+index.html                              4453      1800
+assets/prefs-DmbNWZoX.js                3567      1666
+assets/index-EilrvpyF.js                2178       885
+assets/geometry-BI_3Bk47.js             1338       618
+assets/geometry-9OY5soXy.js             1064       577
+vernier.html                            1011       465
+screw-gauge.html                        1004       466
+assets/zeroError-ZOir-CkC.js             760       474
+assets/zeroCommon-CZ6JcxRt.js            609       354
+assets/zeroError-DqQKrbqX.js             506       350
+favicon.svg                              375       235
+
+JS gzipped:      58.6 KB
+CSS gzipped:     4.9 KB
+JS+CSS gzipped:  63.5 KB  (budget 300 KB)
+Whole dist/ uncompressed: 201.9 KB  (first-load budget 1 MB)
+Fonts: system font stacks only; nothing is downloaded.

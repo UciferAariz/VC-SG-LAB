@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Physics notes: vernier callipers, screw gauge, zero error and error analysis (NCERT Class 11)." />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <title>Physics Notes · Riz Lab</title>
+  </head>
+  <body class="landing-page notes-page">
+    <header class="landing-header">
+      <a class="brand" href="./index.html">Riz Lab</a>
+      <span class="page-title">Physics Notes</span>
+      <nav class="top-nav" aria-label="Pages">
+        <a href="./index.html">Home</a>
+        <a href="./vernier.html">Vernier Callipers</a>
+        <a href="./screw-gauge.html">Screw Gauge</a>
+      </nav>
+    </header>
+    <main class="landing notes">
+      <h1>Physics Notes: Measuring Small Lengths</h1>
+      <nav class="toc" aria-label="Contents">
+        <ol>
+          <li><a href="#need">Why we need precise instruments</a></li>
+          <li><a href="#vernier">Vernier callipers</a></li>
+          <li><a href="#screw">Screw gauge</a></li>
+          <li><a href="#errors">Errors and how to report them</a></li>
+          <li><a href="#precautions">Precautions</a></li>
+          <li><a href="#traps">Common exam traps</a></li>
+        </ol>
+      </nav>
+
+      <section id="need">
+        <h2>1. Why we need precise instruments</h2>
+        <p>The <strong>least count (LC)</strong> of an instrument is the smallest length it can measure. A reading can never be more precise than the LC, so the LC sets the <em>least count error</em> of every measurement.</p>
+        <table class="obs-table notes-table">
+          <thead><tr><th scope="col">Instrument</th><th scope="col">Typical least count</th><th scope="col">Good for</th></tr></thead>
+          <tbody>
+            <tr><td>Metre scale</td><td>1 mm = 0.1 cm</td><td>lengths of a few cm or more</td></tr>
+            <tr><td>Vernier callipers</td><td>0.1 mm = 0.01 cm</td><td>diameters, internal diameters and depths of a few cm</td></tr>
+            <tr><td>Screw gauge</td><td>0.01 mm = 0.001 cm</td><td>wire diameters and sheet thicknesses below a few mm</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="vernier">
+        <h2>2. Vernier callipers</h2>
+        <h3>Principle and least count</h3>
+        <p>A vernier has <em>N</em> divisions that together are slightly shorter than <em>N</em> main-scale divisions. In the usual vernier, <strong>10 vernier scale divisions (VSD) = 9 main scale divisions (MSD)</strong>.</p>
+        <p class="formula">1 VSD = (9/10) MSD &nbsp;⇒&nbsp; LC = 1 MSD − 1 VSD = (1/10) MSD = 0.1 mm = 0.01 cm.<br />In general: N VSD = (N − 1) MSD &nbsp;⇒&nbsp; <strong>LC = MSD / N</strong>.</p>
+        <figure data-fig="vernier-lc"></figure>
+
+        <h3>How to read</h3>
+        <ol>
+          <li><strong>Main scale reading (MSR):</strong> the last main-scale mark to the <em>left</em> of the vernier zero.</li>
+          <li><strong>Vernier scale reading (VSR):</strong> the number <em>n</em> of the vernier mark that lines up best with any main-scale mark.</li>
+          <li><strong>Observed reading = MSR + n × LC.</strong></li>
+        </ol>
+        <figure data-fig="vernier-reading"></figure>
+
+        <h3>Zero error</h3>
+        <p>Close the jaws with nothing between them. If the vernier zero does not sit exactly on the main-scale zero, the instrument has a <strong>zero error (ZE)</strong>. The zero error is the reading shown with the jaws closed.</p>
+        <ul>
+          <li><strong>Positive zero error:</strong> vernier zero to the <em>right</em> of the main zero. If vernier mark <em>n</em> coincides, <strong>ZE = +n × LC</strong>.</li>
+          <li><strong>Negative zero error:</strong> vernier zero to the <em>left</em> of the main zero. If vernier mark <em>n</em> coincides, <strong>ZE = −(N − n) × LC</strong>.</li>
+        </ul>
+        <div class="fig-row">
+          <figure data-fig="vernier-pos-ze"></figure>
+          <figure data-fig="vernier-neg-ze"></figure>
+        </div>
+        <p class="formula"><strong>Zero correction = −ZE. &nbsp; Corrected reading = Observed reading − ZE.</strong></p>
+
+        <h3>Worked examples</h3>
+        <ol class="worked-list">
+          <li>LC = 0.01 cm, MSR = 2.3 cm, vernier mark 5 coincides, no zero error. Observed = 2.3 + 5 × 0.01 = <strong>2.35 cm</strong>.</li>
+          <li>Jaws closed: vernier zero is to the right and mark 3 coincides. ZE = +3 × 0.01 = +0.03 cm. A later observed reading of 4.16 cm gives corrected = 4.16 − (+0.03) = <strong>4.13 cm</strong>.</li>
+          <li>Jaws closed: vernier zero is to the left and mark 7 coincides. ZE = −(10 − 7) × 0.01 = −0.03 cm. Observed 4.16 cm gives corrected = 4.16 − (−0.03) = <strong>4.19 cm</strong>.</li>
+        </ol>
+        <p>The outer (lower) jaws measure external sizes, the inner (upper) jaws internal diameters, and the depth rod depths, all on the same scales.</p>
+      </section>
+
+      <section id="screw">
+        <h2>3. Screw gauge (micrometer)</h2>
+        <h3>Principle: screw motion</h3>
+        <p>The spindle is moved by an accurate screw. In one complete turn of the thimble the spindle moves forward by a fixed distance called the <strong>pitch</strong>. The thimble has <em>N</em> equal divisions (the circular scale).</p>
+        <p class="formula"><strong>LC = pitch / N</strong>, for example 0.5 mm / 50 = 0.01 mm.</p>
+        <p>To find the pitch, note a division on the datum line, turn the thimble exactly one full turn, and see how far the thimble edge moves along the linear (pitch) scale.</p>
+
+        <h3>How to read</h3>
+        <ol>
+          <li><strong>Pitch scale reading (PSR):</strong> the last linear-scale mark uncovered by the thimble edge. Whole millimetres are above the datum line; on a 0.5 mm pitch gauge the <strong>half-millimetre marks are below it</strong>. If a half-mm mark is visible after the last whole mm, add 0.5 mm.</li>
+          <li><strong>Circular scale reading (CSR):</strong> the circular division on the datum line.</li>
+          <li><strong>Observed reading = PSR + CSR × LC.</strong></li>
+        </ol>
+        <figure data-fig="screw-reading"></figure>
+
+        <h3>Zero error</h3>
+        <p>Bring the faces together with the ratchet, with nothing between them.</p>
+        <ul>
+          <li><strong>Positive zero error:</strong> the circular-scale zero lies <em>below</em> the datum line. If division <em>n</em> is on the datum line, <strong>ZE = +n × LC</strong>.</li>
+          <li><strong>Negative zero error:</strong> the circular-scale zero lies <em>above</em> the datum line. If division <em>n</em> is on the datum line, <strong>ZE = −(N − n) × LC</strong>.</li>
+        </ul>
+        <div class="fig-row">
+          <figure data-fig="screw-pos-ze"></figure>
+          <figure data-fig="screw-neg-ze"></figure>
+        </div>
+        <p>The numbers on the visible face of the thimble increase going <em>upward</em>, and opening the gauge moves the thimble surface <em>downward</em> past the datum line. That is why "zero below the datum line" means a positive zero error.</p>
+
+        <h3>Backlash and the ratchet</h3>
+        <p><strong>Backlash:</strong> a worn screw has a little play. When you reverse the direction of turning, the thimble turns a few degrees before the spindle moves, so the reading is wrong by that amount. <em>Always approach the final reading in the same direction.</em></p>
+        <p><strong>Ratchet:</strong> the ratchet knob slips (and clicks) once the spindle touches the object, so the object is never squashed. If you over-tighten with the thimble itself, a soft wire is compressed and the reading comes out too small.</p>
+
+        <h3>Worked examples</h3>
+        <ol class="worked-list">
+          <li>Pitch 0.5 mm, N = 50 (LC 0.01 mm). The 2 mm mark and the half-mm mark after it are visible; division 23 is on the datum line. Observed = 2.5 + 23 × 0.01 = <strong>2.73 mm</strong>.</li>
+          <li>Faces touching: division 4 on the datum line, zero below it. ZE = +4 × 0.01 = +0.04 mm. Observed 0.76 mm gives corrected = 0.76 − 0.04 = <strong>0.72 mm</strong>.</li>
+          <li>Faces touching: division 46 on the datum line, zero above it. ZE = −(50 − 46) × 0.01 = −0.04 mm. Observed 0.76 mm gives corrected = 0.76 + 0.04 = <strong>0.80 mm</strong>.</li>
+        </ol>
+      </section>
+
+      <section id="errors">
+        <h2>4. Errors and how to report them</h2>
+        <h3>Kinds of error</h3>
+        <ul>
+          <li><strong>Systematic errors</strong> push every reading the same way: zero error, backlash, a worn instrument, parallax from viewing at an angle. They are removed by correction or better technique, not by averaging.</li>
+          <li><strong>Random errors</strong> scatter readings both ways: small differences in how the object is held, slight imperfections of the object. Averaging many readings reduces them.</li>
+          <li><strong>Least count error</strong> comes from the resolution of the instrument: no reading is better than ± 1 LC.</li>
+        </ul>
+        <h3>From readings to a result</h3>
+        <p>For <em>n</em> corrected readings a₁, a₂, …, aₙ:</p>
+        <ol>
+          <li>Mean: ā = (a₁ + a₂ + … + aₙ) / n</li>
+          <li>Absolute error of each reading: |Δaᵢ| = |ā − aᵢ|</li>
+          <li>Mean absolute error: Δā = (|Δa₁| + … + |Δaₙ|) / n</li>
+          <li>Relative error: δa = Δā / ā; percentage error = δa × 100 %</li>
+        </ol>
+        <p class="formula"><strong>Reporting rule used in this lab:</strong> the uncertainty cannot be smaller than the least count, so Δa = the larger of Δā and LC. Round Δa to the decimal place of the LC and round ā to the same place. Write the result as <strong>a = (ā ± Δa) unit</strong>, for example d = (2.73 ± 0.01) mm. Keep extra decimals only in the working.</p>
+        <p>Example: readings 2.73, 2.74, 2.72, 2.73, 2.75 mm with LC 0.01 mm. ā = 2.734 mm, Δā = 0.0088 mm (smaller than the LC), so d = (2.73 ± 0.01) mm and the percentage error ≈ 0.32 %.</p>
+        <h3>Combining errors (maximum-error rule)</h3>
+        <ul>
+          <li>Sum or difference, Z = A ± B: <strong>ΔZ = ΔA + ΔB</strong>.</li>
+          <li>Product or quotient, Z = AB or A/B: <strong>ΔZ/Z = ΔA/A + ΔB/B</strong>.</li>
+          <li>Power, Z = Aᵖ: <strong>ΔZ/Z = p · ΔA/A</strong>.</li>
+        </ul>
+        <table class="obs-table notes-table">
+          <thead><tr><th scope="col">Quantity</th><th scope="col">Formula</th><th scope="col">Relative error</th></tr></thead>
+          <tbody>
+            <tr><td>Volume of a sphere</td><td>V = (4/3)πr³ = (π/6)d³</td><td>ΔV/V = 3 Δd/d</td></tr>
+            <tr><td>Volume of a cylinder</td><td>V = (π/4)d²L</td><td>ΔV/V = 2 Δd/d + ΔL/L</td></tr>
+            <tr><td>Cross-section of a wire</td><td>A = (π/4)d²</td><td>ΔA/A = 2 Δd/d</td></tr>
+            <tr><td>Volume of a block</td><td>V = l·b·h</td><td>ΔV/V = Δl/l + Δb/b + Δh/h</td></tr>
+            <tr><td>Internal volume of a beaker</td><td>V = (π/4)D²h</td><td>ΔV/V = 2 ΔD/D + Δh/h</td></tr>
+          </tbody>
+        </table>
+        <p>Example: a bob with d = (2.12 ± 0.02) cm has ΔV/V = 3 × 0.02/2.12 ≈ 2.83 %.</p>
+      </section>
+
+      <section id="precautions">
+        <h2>5. Precautions</h2>
+        <div class="fig-row">
+          <div>
+            <h3>Vernier callipers</h3>
+            <ul>
+              <li>Find the zero error with the jaws closed and apply the correction with its sign.</li>
+              <li>Hold the object gently; the jaws should just touch it, not press it.</li>
+              <li>Lock the slider with the locking screw before reading.</li>
+              <li>Keep your eye directly above the lines to avoid parallax.</li>
+              <li>Take readings at different positions and orientations; use the mean.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Screw gauge</h3>
+            <ul>
+              <li>Always finish with the ratchet, never by forcing the thimble.</li>
+              <li>Approach the final reading in one direction only (backlash).</li>
+              <li>Find the zero error with the faces just touching (ratchet clicking).</li>
+              <li>For a wire, measure at several points and in two perpendicular directions.</li>
+              <li>Do not forget the half-millimetre marks below the datum line.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="traps" class="traps">
+        <h2>6. Common exam traps</h2>
+        <ul>
+          <li><strong>Sign of the zero error.</strong> Vernier zero right of main zero (circular zero below the datum line) = positive. Left (above) = negative.</li>
+          <li><strong>Adding instead of subtracting.</strong> Corrected = Observed − ZE. A negative zero error makes the corrected reading <em>larger</em>.</li>
+          <li><strong>n instead of N − n.</strong> For a negative zero error use −(N − n) × LC, not −n × LC.</li>
+          <li><strong>Forgetting the half-mm mark</strong> on a 0.5 mm pitch screw gauge: the answer comes out 0.5 mm too small.</li>
+          <li><strong>Division number instead of n × LC:</strong> writing 2.3 + 5 instead of 2.3 + 5 × 0.01.</li>
+          <li><strong>Unit slips:</strong> mixing mm and cm makes the answer ten times too big or too small.</li>
+          <li><strong>Too many decimals:</strong> a final result cannot be more precise than the least count.</li>
+        </ul>
+      </section>
+    </main>
+    <footer class="site-footer">Riz Lab</footer>
+    <script type="module" src="./src/pages/notes.ts"></script>
+  </body>
+</html>

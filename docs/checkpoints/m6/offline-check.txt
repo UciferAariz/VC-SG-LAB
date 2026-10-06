@@ -1,0 +1,8 @@
+PASS  /index.html: zero requests outside the laptop (7 local requests)
+PASS  /index.html: no page errors 
+PASS  /vernier.html: zero requests outside the laptop (9 local requests)
+PASS  /vernier.html: works with the network OFF (demo to step 7, practice, experiment) 
+PASS  /screw-gauge.html: zero requests outside the laptop (9 local requests)
+PASS  /screw-gauge.html: works with the network OFF (demo to step 7, practice, experiment) 
+PASS  /notes.html: zero requests outside the laptop (10 local requests)
+PASS  /notes.html: no page errors 

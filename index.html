@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Virtual physics lab: vernier callipers and screw gauge, NCERT Class 11/12." />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <title>Riz Lab</title>
+  </head>
+  <body class="landing-page">
+    <header class="landing-header">
+      <span class="brand">Riz Lab</span>
+      <nav class="top-nav" aria-label="Pages">
+        <a href="./notes.html">Physics Notes</a>
+        <a href="#how">How to Use</a>
+        <a href="#about">About</a>
+      </nav>
+    </header>
+    <main class="landing">
+      <h1>Virtual Physics Lab — Vernier Callipers &amp; Screw Gauge</h1>
+      <div class="cards">
+        <a class="card" href="./vernier.html">
+          <span class="card-art" data-art="vernier" aria-hidden="true"></span>
+          <strong>Vernier Callipers</strong>
+          <span class="hint">Least count, zero error and readings of lengths, diameters and depths.</span>
+        </a>
+        <a class="card" href="./screw-gauge.html">
+          <span class="card-art" data-art="screw" aria-hidden="true"></span>
+          <strong>Screw Gauge</strong>
+          <span class="hint">Pitch, least count, zero error and the diameter of a wire.</span>
+        </a>
+      </div>
+
+      <section id="how" class="landing-section">
+        <h2>How to Use</h2>
+        <ol>
+          <li><strong>Explore:</strong> open an instrument. Drag the vernier slider, or drag / scroll on the thimble of the screw gauge. The Readout tab shows every value with a one-line explanation (ⓘ).</li>
+          <li><strong>Objects:</strong> pick a bob, cylinder, beaker or block (vernier), or a wire, coin, glass slide, ball or paper stack (screw gauge). Their true sizes are hidden. Use <em>Rotate / reposition</em> between readings.</li>
+          <li><strong>Practice:</strong> the readout is hidden. Enter LC, zero error, the scale readings and the corrected reading; every step is checked and common mistakes get a targeted hint.</li>
+          <li><strong>Experiment:</strong> record a full observation table, get the error analysis and the derived quantity, then download a CSV or print an A4 practical record.</li>
+          <li><strong>Presentation:</strong> press <kbd>P</kbd> on an instrument page for a high-contrast, step-by-step demo. A USB clicker works: <kbd>Space</kbd> / <kbd>→</kbd> / <kbd>PageDown</kbd> next, <kbd>Backspace</kbd> / <kbd>←</kbd> / <kbd>PageUp</kbd> back.</li>
+          <li><strong>Whole class, same data:</strong> in Settings, everyone types the same session seed to get identical objects and zero errors.</li>
+        </ol>
+        <h3>Keyboard</h3>
+        <ul>
+          <li>Vernier (click the instrument first): <kbd>←</kbd> <kbd>→</kbd> 0.01 mm, <kbd>Shift</kbd> 1 mm, <kbd>Alt</kbd> 0.001 mm.</li>
+          <li>Screw gauge: <kbd>↑</kbd> <kbd>↓</kbd> one circular division, <kbd>Shift</kbd> 0.1 division, <kbd>PageUp</kbd> / <kbd>PageDown</kbd> one turn, <kbd>R</kbd> ratchet, <kbd>O</kbd> open.</li>
+          <li>Both: <kbd>L</kbd> lock, <kbd>M</kbd> magnifier, <kbd>+</kbd> <kbd>−</kbd> zoom, <kbd>F</kbd> fit, <kbd>S</kbd> focus on the scale, <kbd>0</kbd> reset view, <kbd>P</kbd> presentation.</li>
+        </ul>
+      </section>
+
+      <section id="about" class="landing-section">
+        <h2>About</h2>
+        <p>An interactive, physically exact virtual lab for Class 11/12 (CBSE / NCERT, NEET / JEE level). Every reading is computed from the instrument's geometry: the scales are drawn exactly as they would look at the true position, and the reading is what a careful student would record. Zero-error signs follow NCERT: corrected reading = observed reading − zero error.</p>
+        <p>It runs entirely on this computer, with no internet connection, no accounts, no tracking and no cookies.</p>
+      </section>
+    </main>
+    <footer class="site-footer">Riz Lab</footer>
+    <script type="module" src="./src/pages/landing.ts"></script>
+  </body>
+</html>

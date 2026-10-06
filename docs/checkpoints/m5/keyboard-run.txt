@@ -1,0 +1,75 @@
+
+== vernier ==
+Focus order (first 16 Tab stops):
+  a "Riz Lab"
+  a "Home"
+  a "Vernier Callipers"
+  a "Screw Gauge"
+  a "Physics notes"
+  svg[slider] "Vernier slider"
+  button "Zoom in"
+  button "Zoom out"
+  button "Reset view"
+  button "Fit instrument"
+  button "Focus on scale"
+  button "Presentation (P)"
+  button "Close jaws"
+  button "Magnifier (M)"
+  button "Pin magnifier"
+  button "Fine mode: drag moves the jaw 10× less"
+PASS  every Tab stop shows a visible focus ring (≥ 2 px outline) 
+PASS  instrument reachable by Tab (role="slider") 
+PASS  arrow keys move the instrument; aria-valuetext follows "Observed reading 2.35 cm" → "Observed reading 2.45 cm"
+PASS  L locks (keys then do nothing) 
+PASS  M toggles the magnifier 
+PASS  + zooms in 
+PASS  side-panel tabs reachable Readout
+PASS  → moves to the Mode tab Mode
+PASS  Practice card reachable 
+PASS  Enter starts Practice (readout hidden) 
+PASS  answer box reachable 
+PASS  Enter checks the answer; feedback announced (aria-live) ✓ Correct.
+PASS  back to Explore by keyboard (readout shown again) 
+PASS  Settings tab; theme changes with arrow keys light → dark
+PASS  P enters Presentation 
+PASS  Space / PageDown next, Backspace back step 3 → 2
+PASS  P leaves Presentation 
+Controls under 44 × 44 px (including their <label>): none
+
+== screw ==
+Focus order (first 16 Tab stops):
+  a "Riz Lab"
+  a "Home"
+  a "Vernier Callipers"
+  a "Screw Gauge"
+  a "Physics notes"
+  svg[slider] "Screw gauge thimble"
+  button "Zoom in"
+  button "Zoom out"
+  button "Reset view"
+  button "Fit instrument"
+  button "Focus on scale"
+  button "Presentation (P)"
+  button "Open the gauge (O)"
+  button "Magnifier (M)"
+  button "Pin magnifier"
+  button "Fine mode: dragging turns the thimble 10× less"
+PASS  every Tab stop shows a visible focus ring (≥ 2 px outline) 
+PASS  instrument reachable by Tab (role="slider") 
+PASS  arrow keys move the instrument; aria-valuetext follows "Observed reading 2.73 mm" → "Observed reading 3.24 mm"
+PASS  L locks (keys then do nothing) 
+PASS  M toggles the magnifier 
+PASS  + zooms in 
+PASS  R turns the ratchet (closes) 
+PASS  side-panel tabs reachable Readout
+PASS  → moves to the Mode tab Mode
+PASS  Practice card reachable 
+PASS  Enter starts Practice (readout hidden) 
+PASS  answer box reachable 
+PASS  Enter checks the answer; feedback announced (aria-live) ✓ Correct.
+PASS  back to Explore by keyboard (readout shown again) 
+PASS  Settings tab; theme changes with arrow keys light → dark
+PASS  P enters Presentation 
+PASS  Space / PageDown next, Backspace back step 3 → 2
+PASS  P leaves Presentation 
+Controls under 44 × 44 px (including their <label>): none

@@ -1,0 +1,9 @@
+1280x720 cpu×1: frames=128 avg=16.7ms (60 fps) p50=16.7 p95=16.9 max=17.9
+1920x1080 cpu×1: frames=127 avg=16.7ms (60 fps) p50=16.7 p95=16.9 max=17.1
+1920x1080 cpu×4: frames=242 avg=19.7ms (51 fps) p50=16.7 p95=33.4 max=50.0
+412x915 cpu×4: frames=266 avg=17.3ms (58 fps) p50=16.7 p95=16.9 max=33.4
+screw 1280x720 cpu×1: frames=121 avg=16.7ms (60 fps) p50=16.7 p95=16.9 max=17.0
+screw 1920x1080 cpu×1: frames=119 avg=16.7ms (60 fps) p50=16.7 p95=16.9 max=17.2
+screw 1920x1080 cpu×4: frames=279 avg=18.6ms (54 fps) p50=16.7 p95=33.3 max=83.3
+screw 412x915 cpu×4: frames=276 avg=18.3ms (55 fps) p50=16.7 p95=33.3 max=83.2
+drag.gif written

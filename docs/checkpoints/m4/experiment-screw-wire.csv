@@ -1,0 +1,27 @@
+﻿Riz Lab
+Experiment: Screw gauge,Object: Copper wire
+Least count,"Pitch = 0.5 mm, N = 50, LC = pitch / N = 0.5 mm / 50 = 0.01 mm"
+Zero error,+0.04 mm  (n = 4: +4 × 0.01 mm); zero correction = −0.04 mm
+
+Diameter (d)
+S.No,Direction (∥/⊥),PSR (mm),CSR (n),n × LC (mm),Observed (mm),Corrected (mm)
+1,∥,0.50,26,26 × 0.01 = 0.26,0.76,0.72
+2,∥,0.50,26,26 × 0.01 = 0.26,0.76,0.72
+3,∥,0.50,26,26 × 0.01 = 0.26,0.76,0.72
+4,⊥,0.50,24,24 × 0.01 = 0.24,0.74,0.70
+5,⊥,0.50,24,24 × 0.01 = 0.24,0.74,0.70
+Mean value,d̄ = (0.72 + 0.72 + 0.72 + 0.70 + 0.70) / 5 = 0.7120 mm
+Absolute error of each reading,"|Δd₁| = 0.0080,  |Δd₂| = 0.0080,  |Δd₃| = 0.0080,  |Δd₄| = 0.0120,  |Δd₅| = 0.0120 mm"
+Mean absolute error,Δd̄ = (0.0080 + 0.0080 + 0.0080 + 0.0120 + 0.0120) / 5 = 0.0096 mm
+Relative error,δd = 0.0096 / 0.7120 = 0.01348
+Percentage error,1.35 %
+Reporting rule,"Δd̄ = 0.0096 is smaller than LC = 0.01, so the uncertainty is the least count: Δd = 0.01 mm"
+Result,d = (0.71 ± 0.01) mm
+
+Cross-sectional area of wire
+Formula,A = (π/4) × (0.7100)²
+Value,A = 0.3959 mm²
+Relative error (maximum-error rule),ΔA/A = 2 × 0.01000/0.7100 = 0.0282
+Percentage error,2.82 %
+Absolute error,ΔA = 0.0282 × 0.3959 = 0.0112 mm²
+Result,A = (0.396 ± 0.011) mm²

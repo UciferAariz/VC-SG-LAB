@@ -1,0 +1,22 @@
+PASS  vernier experiment: ZE recorded as −0.03 cm zeMm -0.3
+PASS  warns when recording twice without repositioning 
+PASS  vernier experiment: 5 rows recorded 
+PASS  every corrected = observed − ZE 
+PASS  result line has the (mean ± error) cm form d = (1.99 ± 0.01) cm
+PASS  screw experiment: ZE recorded as +0.04 mm zeMm 0.04
+PASS  screw experiment: 5 rows recorded 
+PASS  directions ∥ and ⊥ both recorded 
+PASS  screw corrected = observed − ZE 
+PASS  wire result has (mean ± error) mm form d = (0.71 ± 0.01) mm
+PASS  practice hides the readout 
+PASS  LC unit slip → unit hint 
+PASS  ZE sign flipped → sign hint ZE -0.02 cm
+PASS  MSR + n → division-number hint 
+PASS  added ZE → added-ze hint 
+PASS  3 wrong attempts → worked solution shown 
+PASS  missed half-mm mark → half-mm hint 
+PASS  guided: hovering highlights a vernier span 
+PASS  guided LC summary 
+PASS  guided pitch: must turn one turn first 
+PASS  guided pitch summary 
+PASS  no page errors 

@@ -1,0 +1,37 @@
+# Cloud Build: test, build and publish the lab to the public bucket.
+# Runs on every push to main (trigger "vc-sg-lab-deploy").
+substitutions:
+  _BUCKET: vernier-lab-bccad6de
+
+steps:
+  - id: install
+    name: node:22
+    entrypoint: npm
+    args: ['ci']
+
+  - id: test
+    name: node:22
+    entrypoint: npm
+    args: ['test']
+
+  - id: build
+    name: node:22
+    entrypoint: npm
+    args: ['run', 'build']
+
+  # Hashed assets first, pages last, so a visitor never gets a page whose scripts are not uploaded yet.
+  # no-cache: browsers revalidate, so a reload always shows the latest lab.
+  - id: upload-assets
+    name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
+    entrypoint: gcloud
+    args: ['storage', 'cp', '--recursive', '--cache-control=no-cache', 'dist/assets', 'gs://${_BUCKET}/']
+
+  - id: upload-pages
+    name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
+    entrypoint: bash
+    args: ['-c', 'gcloud storage cp --cache-control=no-cache dist/*.html dist/favicon.svg gs://${_BUCKET}/']
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+
+timeout: 900s

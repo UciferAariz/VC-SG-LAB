@@ -1,0 +1,4 @@
+index performance=100 accessibility=100 best-practices=100
+vernier performance=100 accessibility=100 best-practices=100
+screw-gauge performance=100 accessibility=100 best-practices=100
+notes performance=100 accessibility=100 best-practices=100
