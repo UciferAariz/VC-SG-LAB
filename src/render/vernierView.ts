@@ -207,6 +207,8 @@ export function createVernierView(config: VernierConfig): VernierView {
       }),
       // Polished measuring-face highlight.
       svg('path', { d: `M-0.12 ${BEAM_BOTTOM}V51`, stroke: '#ffffff', 'stroke-width': 0.18, 'stroke-opacity': 0.9 }),
+      // Maker's mark engraved on the jaw.
+      engravedText(-7.5, 30, 'Riz Lab', 2.2, 'middle', 'engr engr-brand'),
     );
     // Main scale: 0–15 cm, ticks rising from the shared edge.
     const ticks = mainTicks(MAIN_SCALE_END, cfg.msd);
