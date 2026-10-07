@@ -124,6 +124,8 @@ const en = {
   ariaFree: 'Open',
   ariaClosed: 'Jaws closed',
   sheetHandle: 'Resize the panel (peek, half, full)',
+  panelHide: 'Hide side panel',
+  panelShow: 'Show side panel',
   rotateHint: 'Tip: rotate your phone to landscape for the best view.',
   dismiss: 'OK',
   sSound: 'Sound',

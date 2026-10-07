@@ -167,6 +167,23 @@ a {
   grid-template-columns: minmax(0, 7fr) minmax(300px, 3fr);
   min-height: 0;
 }
+body:not(.presenting) .workspace.panel-collapsed {
+  grid-template-columns: minmax(0, 1fr);
+}
+body:not(.presenting) .workspace.panel-collapsed .side-panel {
+  display: none;
+}
+body.presenting .btn-panel-toggle {
+  display: none;
+}
+@media (max-width: 1023px) {
+  .btn-panel-toggle {
+    display: none;
+  }
+  body:not(.presenting) .workspace.panel-collapsed .side-panel {
+    display: block;
+  }
+}
 
 /* ── Stage (instrument canvas on the lab bench) ───────────────────────────── */
 .stage {

@@ -35,5 +35,6 @@ export const icons = {
   print: wrap('<path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M6 14h12v7H6z"/>'),
   download: wrap('<path d="M12 3v12M7 10l5 5 5-5M4 21h16"/>'),
   record: wrap('<circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3" fill="currentColor"/>'),
+  panel: wrap('<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M15 4v16"/>'),
   trash: wrap('<path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/>'),
 };

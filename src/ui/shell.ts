@@ -1,6 +1,7 @@
 /** Page chrome shared by the instrument pages: header, stage, side panel. */
-import { h } from './controls';
+import { h, iconButton } from './controls';
 import { t } from './i18n';
+import { icons } from './icons';
 
 export interface Shell {
   stage: HTMLElement;
@@ -30,10 +31,41 @@ export function createShell(pageTitle: string, current: 'vernier' | 'screw'): Sh
   const panel = h('aside', { class: 'side-panel', 'aria-label': 'Readout and settings', 'data-sheet': 'peek' });
   panel.append(sheetHandle(panel));
   const main = h('main', { class: 'workspace' }, [stage, panel]);
+  toolbar.append(panelToggle(main));
   const app = document.getElementById('app')!;
   app.replaceChildren(header, main);
   rotateHint(stage);
   return { stage, panel, toolbar, dock, status };
+}
+
+/**
+ * Desktop (≥ 1024 px): show / hide the side panel so the stage can use the
+ * full width. The choice is remembered. Hidden on smaller screens by CSS,
+ * where the panel stacks below the stage or becomes a bottom sheet.
+ */
+function panelToggle(workspace: HTMLElement): HTMLButtonElement {
+  const KEY = 'rizlab.panelCollapsed.v1';
+  const btn = iconButton(icons.panel, t.panelHide, () => set(!workspace.classList.contains('panel-collapsed')), { cls: 'btn-panel-toggle' });
+  const set = (collapsed: boolean) => {
+    workspace.classList.toggle('panel-collapsed', collapsed);
+    const label = collapsed ? t.panelShow : t.panelHide;
+    btn.setAttribute('aria-label', label);
+    btn.title = label;
+    btn.setAttribute('aria-pressed', String(!collapsed));
+    try {
+      localStorage.setItem(KEY, collapsed ? '1' : '0');
+    } catch {
+      /* storage blocked: still toggles for this visit */
+    }
+  };
+  let collapsed = false;
+  try {
+    collapsed = localStorage.getItem(KEY) === '1';
+  } catch {
+    /* storage blocked: start expanded */
+  }
+  set(collapsed);
+  return btn;
 }
 
 type SheetState = 'peek' | 'half' | 'full';
